@@ -1,4 +1,33 @@
-<h1>Hai, This is the entry point of the blog</h1>
-<a href="/">Click here to go to home page</a>
-<a href="/blog/1">Click here to go to first blog</a>
-<a href="/blog/2">Click here to go to second blog</a>
+<script lang="ts">
+	let { data } = $props();
+</script>
+
+<h1>Blog</h1>
+
+<ul>
+	{#each data.summaries as { slug, title }}
+		<li><a href="/blog/{slug}">{title}</a></li>
+	{/each}
+</ul>
+
+<style>
+	h1 {
+		font-size: 50px;
+		margin: auto;
+		width: 100px;
+	}
+
+	ul {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	li {
+		margin: 20px;
+	}
+
+	li a {
+		font-weight: bold;
+	}
+</style>
